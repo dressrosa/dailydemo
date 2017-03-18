@@ -27,7 +27,6 @@ public class CglibProxyDemo implements MethodInterceptor {
 		System.out.println("-------------------接口代理调用----------------");
 		HelloService proxy1 = (HelloService) Proxy.newProxyInstance(service.getClass().getClassLoader(),
 				service.getClass().getInterfaces(), new InvocationHandler() {
-					@Override
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						System.out.println("之前");
 						Object result = method.invoke(service, args);
@@ -54,7 +53,6 @@ public class CglibProxyDemo implements MethodInterceptor {
 		return (CglibProxyDemo) hancer.create();
 	}
 
-	@Override
 	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 		System.out.println("之前...");
 		proxy.invokeSuper(obj, args);

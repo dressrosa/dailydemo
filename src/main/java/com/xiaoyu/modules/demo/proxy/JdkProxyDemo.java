@@ -24,7 +24,6 @@ public class JdkProxyDemo {
 		System.out.println("-------------------接口调用----------------");
 		HelloService proxy = (HelloService) Proxy.newProxyInstance(service.getClass().getClassLoader(),
 				service.getClass().getInterfaces(), new InvocationHandler() {
-					@Override
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						System.out.println("之前...");
 						Object result = method.invoke(service, args);
@@ -43,7 +42,6 @@ public class JdkProxyDemo {
 		final JdkProxyDemo demo = new JdkProxyDemo();
 		JdkProxyDemo demoProxy = (JdkProxyDemo) Proxy.newProxyInstance(demo.getClass().getClassLoader(),
 				demo.getClass().getInterfaces(), new InvocationHandler() {
-					@Override
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						System.out.println("之前...");
 						Object result = method.invoke(demo, args);
