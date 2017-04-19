@@ -1,6 +1,6 @@
 /**
- * 唯有看书,不庸不扰
- **/
+ * 唯有读书,不慵不扰
+ */
 package com.xiaoyu.modules.demo.observe.jdk;
 
 import java.util.Observable;
